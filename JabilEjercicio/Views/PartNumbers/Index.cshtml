@@ -1,0 +1,47 @@
+﻿@model IEnumerable<JabilEjercicio.Models.PartNumber>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PartNumber1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Available)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FkcustomerNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartNumber1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Available)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FkcustomerNavigation.Pkcustomer)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PkpartNumber">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PkpartNumber">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PkpartNumber">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

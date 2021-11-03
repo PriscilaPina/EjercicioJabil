@@ -1,0 +1,47 @@
+﻿@model IEnumerable<JabilEjercicio.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prefix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FkbuildingNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prefix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FkbuildingNavigation.Pkbuilding)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Pkcustomer">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Pkcustomer">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Pkcustomer">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
